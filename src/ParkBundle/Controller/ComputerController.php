@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ComputerController extends Controller
 {
     /**
-     * @Route("/park/computer")
+     * @Route("/park/computer", name = "app_homepage")
      * @Template()
      */
     public function listAction()

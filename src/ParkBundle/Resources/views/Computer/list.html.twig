@@ -1,3 +1,8 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Liste des ordinateurs {% endblock %}
+
+{% block body %}
 <h1>Liste des ordinateurs</h1>
 <ul>
     {% for computer in computers %}
@@ -10,7 +15,7 @@
     {% endfor %}
 </ul>
 
-<table border="1" style="width:100%">
+<table class="table table-stripped">
     <tr>
         <td>ID</td>
         <td>Nom</td>
@@ -38,3 +43,5 @@
         </tr>
     {% endfor %}
 </table>
+
+{% endblock %}
