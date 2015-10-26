@@ -1,0 +1,40 @@
+<h1>Liste des ordinateurs</h1>
+<ul>
+    {% for computer in computers %}
+        <li>ID : {{ computer.id }} -
+            nom : {{ computer.name }} -
+            IP : {{ computer.ip }} -
+            {% if computer.enabled %} activé {% else %} désactivé {% endif %}</li>
+    {% else %}
+        <h4>Pas d'ordinateur :'(</h4>
+    {% endfor %}
+</ul>
+
+<table border="1" style="width:100%">
+    <tr>
+        <td>ID</td>
+        <td>Nom</td>
+        <td>IP</td>
+        <td>Activé ?</td>
+    </tr>
+    {% for computer in computers %}
+        <tr>
+            <td>
+                {{ computer.id }}
+            </td>
+            <td>
+                {{ computer.name }}
+            </td>
+            <td>
+                {{ computer.ip }}
+            </td>
+            <td>
+                {% if computer.enabled %} Activé {% else %} Désactivé {% endif %}
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            Pas d'ordinateur :'(
+        </tr>
+    {% endfor %}
+</table>
