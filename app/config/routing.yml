@@ -1,4 +1,8 @@
-park:
-    resource: "@ParkBundle/Controller/"
-    type:     annotation
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
+
+park:
+    resource: "@ParkBundle/Controller"
+    type:     annotation
+    prefix:   /park
