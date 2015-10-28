@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Computer list</h1>
+    <h1>{{  'app.computer.list'|trans|capitalize }}</h1>
 
     <a class="btn btn-sm btn-success" href="{{ path('computer_new') }}">
         <span class="glyphicon glyphicon-plus"></span> Add computer
