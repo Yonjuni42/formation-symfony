@@ -20,8 +20,7 @@ class AppKernel extends Kernel
             new Hautelook\AliceBundle\HautelookAliceBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
 
-            new AppBundle\AppBundle(),
-            new ParkBundle\ParkBundle(),
+            new AppBundle\AppBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

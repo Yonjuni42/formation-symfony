@@ -1,0 +1,12 @@
+services:
+    app.twig.computer_status_extension:
+        class: AppBundle\Twig\ComputerStatusExtension
+        tags:
+            - { name: twig.extension }
+
+    app.computer_manager:
+        class:     AppBundle\Services\ComputerManager
+        arguments: [@doctrine.orm.default_entity_manager]
+
+    app.calculator:
+        class:     AppBundle\Services\Calculator
