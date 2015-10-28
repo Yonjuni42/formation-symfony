@@ -3,14 +3,18 @@
 {% block body -%}
     <h1>Person list</h1>
 
+    <a class="btn btn-sm btn-success" href="{{ path('computer_new') }}">
+        <span class="glyphicon glyphicon-plus"></span> Add person
+    </a>
+
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
@@ -26,12 +30,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('person_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}
