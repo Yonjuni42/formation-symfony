@@ -3,7 +3,7 @@
 {% block body -%}
     <h1>Person list</h1>
 
-    <table class="records_list">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,14 +19,8 @@
                 <td>{{ entity.firstName }}</td>
                 <td>{{ entity.lastName }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('person_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('person_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <a class="btn btn-xs btn-primary" href="{{ path('computer_show', { 'id': entity.id }) }}">show</a>
+                    <a class="btn btn-xs btn-warning" href="{{ path('computer_edit', { 'id': entity.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
