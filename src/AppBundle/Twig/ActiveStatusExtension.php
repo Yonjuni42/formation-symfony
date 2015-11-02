@@ -3,10 +3,10 @@
 namespace AppBundle\Twig;
 
 /**
- * Class ComputerStatusExtension
+ * Class ActiveStatusExtension
  * @package AppBundle\Twig
  */
-class ComputerStatusExtension extends \Twig_Extension
+class ActiveStatusExtension extends \Twig_Extension
 {
 
     /**
@@ -14,11 +14,11 @@ class ComputerStatusExtension extends \Twig_Extension
      * @param $status
      * @return string
      */
-    public function renderComputerStatus(\Twig_Environment $env, $status)
+    public function renderActiveStatus(\Twig_Environment $env, $status)
     {
         //return processed template content
         return $env->render(
-            'AppBundle:Computer:Status/index.html.twig',
+            'AppBundle:Status:index.html.twig',
             array(
                 'status' => (bool)$status,
             )
@@ -32,8 +32,8 @@ class ComputerStatusExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFilter(
-                'computer_status',
-                array($this, 'renderComputerStatus'),
+                'active_status',
+                array($this, 'renderActiveStatus'),
                 array(
                     'is_safe' => array('html'),
                     'needs_environment' => true
@@ -47,6 +47,6 @@ class ComputerStatusExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'app_computer_status_extension';
+        return 'app_active_status_extension';
     }
 }
