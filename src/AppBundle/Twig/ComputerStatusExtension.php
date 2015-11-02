@@ -47,6 +47,6 @@ class ComputerStatusExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'park_computer_status_extension';
+        return 'app_computer_status_extension';
     }
 }

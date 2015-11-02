@@ -1,7 +1,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
 {% endblock %}
-{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+{% if check_authorization('IS_AUTHENTICATED_REMEMBERED') %}
     <ul class="nav navbar-nav">
         <li>
             <a href="{{ path('default') }}"><span class="glyphicon glyphicon-home"></span> Home</a>
@@ -23,6 +23,11 @@
                 <li><a href="{{ path('person') }}"><span class="glyphicon glyphicon-list"></span> List</a></li>
             </ul>
         </li>
+        {% if is_granted('ROLE_MODERATOR') %}
+            <li>
+                <a href="{{ path('manage') }}"><span class="glyphicon glyphicon-check"></span> Manage computers</a>
+            </li>
+        {% endif %}
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>

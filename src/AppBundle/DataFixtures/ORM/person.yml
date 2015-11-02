@@ -1,0 +1,4 @@
+AppBundle\Entity\Person:
+    person{1..6}:
+        lastname: <lastName()>
+        firstname: <firstName()>

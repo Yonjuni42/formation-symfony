@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Computer;
 use AppBundle\Form\ComputerType;
 
@@ -40,6 +41,7 @@ class ComputerController extends Controller
      * @Route("/", name="computer_create")
      * @Method("POST")
      * @Template("AppBundle:Computer:new.html.twig")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -86,6 +88,7 @@ class ComputerController extends Controller
      * @Route("/new", name="computer_new")
      * @Method("GET")
      * @Template()
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newAction()
     {
@@ -129,6 +132,7 @@ class ComputerController extends Controller
      * @Route("/{id}/edit", name="computer_edit")
      * @Method("GET")
      * @Template()
+     * @Security("has_role('ROLE_MODERATOR')")
      */
     public function editAction($id)
     {
@@ -174,6 +178,7 @@ class ComputerController extends Controller
      * @Route("/{id}", name="computer_update")
      * @Method("PUT")
      * @Template("AppBundle:Computer:edit.html.twig")
+     * @Security("has_role('ROLE_MODERATOR')")
      */
     public function updateAction(Request $request, $id)
     {
@@ -206,6 +211,7 @@ class ComputerController extends Controller
      *
      * @Route("/{id}", name="computer_delete")
      * @Method("DELETE")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, $id)
     {

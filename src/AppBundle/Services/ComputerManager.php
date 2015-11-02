@@ -37,4 +37,18 @@ class ComputerManager
     {
         return $this->em;
     }
+
+    /**
+     * Sets all computers to enabled/disabled
+     *
+     * @param $enabled
+     */
+    public function setComputers($enabled) {
+        $computers = $this->getComputers();
+
+        foreach ($computers as $computer) {
+            $computer->setEnabled($enabled);
+        }
+        $this->em->flush();
+    }
 }

@@ -4,6 +4,12 @@ services:
         tags:
             - { name: twig.extension }
 
+    app.twig.auth_checker_extension:
+        class: AppBundle\Twig\AuthCheckerExtension
+        arguments: [@security.authorization_checker]
+        tags:
+            - { name: twig.extension }
+
     app.computer_manager:
         class:     AppBundle\Services\ComputerManager
         arguments: [@doctrine.orm.default_entity_manager]

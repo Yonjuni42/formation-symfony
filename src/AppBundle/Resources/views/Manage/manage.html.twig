@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Manage computers</h1>
+
+    <a class="btn btn-sm btn-success" href="{{ path('manage_enable') }}">
+        <span class="glyphicon glyphicon-ok"></span> Enable all computers
+    </a>
+    <a class="btn btn-sm btn-danger" href="{{ path('manage_disable') }}">
+        <span class="glyphicon glyphicon-remove"></span> Disable all computers
+    </a>
+
+{% endblock %}

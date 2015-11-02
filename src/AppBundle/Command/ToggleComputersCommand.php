@@ -30,14 +30,9 @@ class ToggleComputersCommand extends ContainerAwareCommand
             $enabled = true;
         else
             $enabled = false;
-        $computerManager = $this->getContainer()->get('park.computer_manager');
+        $computerManager = $this->getContainer()->get('app.computer_manager');
 
-        $computers = $computerManager->getComputers();
-
-        foreach ($computers as $computer) {
-            $computer->setEnabled($enabled);
-        }
-        $computerManager->getEntityManager()->flush();
+        $computerManager->setComputers($enabled);
 
         $output->writeln(($enabled?'Enabled':'Disabled').' all computers');
     }
