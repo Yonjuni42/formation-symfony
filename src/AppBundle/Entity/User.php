@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,8 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
  */
-class User
+class User implements UserInterface
 {
+    /**
+     * Single salt for all users \o/
+     */
+    const SALT = 'fu';
+
     /**
      * @var integer
      *
@@ -31,16 +37,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=100, nullable=true)
+     * @ORM\Column(name="password", type="string", length=100)
      */
     private $password;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="plainPassword", type="string", length=100)
-     */
-    private $plainPassword;
 
     /**
      * @var string
@@ -55,13 +54,6 @@ class User
      * @ORM\Column(name="firstname", type="string", length=100)
      */
     private $firstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="salt", type="string", length=100, nullable=true)
-     */
-    private $salt;
 
     /**
      * @var array
@@ -223,7 +215,7 @@ class User
      */
     public function getSalt()
     {
-        return $this->salt;
+        return self::SALT;
     }
 
     /**
@@ -270,5 +262,12 @@ class User
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Erase the plainPassword field
+     */
+    public function eraseCredentials() {
+        $this->plainPassword = null;
     }
 }

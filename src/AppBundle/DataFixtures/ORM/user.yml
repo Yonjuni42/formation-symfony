@@ -24,6 +24,6 @@ AppBundle\Entity\User:
         username: <username()>
         name: <lastName()>
         firstname: <firstName()>
-        plainPassword: <username()>
+        plainPassword: fu
         roles: ["ROLE_USER"]
         enabled: <numberBetween(0, 1)>

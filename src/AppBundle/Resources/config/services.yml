@@ -16,3 +16,9 @@ services:
 
     app.calculator:
         class:     AppBundle\Services\Calculator
+
+    app.security.user:
+        class:     AppBundle\Services\Security\UserSecurity
+        arguments: [@security.encoder_factory]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
