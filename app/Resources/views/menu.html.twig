@@ -28,6 +28,11 @@
                 <a href="{{ path('manage') }}"><span class="glyphicon glyphicon-check"></span> Manage computers</a>
             </li>
         {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('user') }}"><span class="glyphicon glyphicon-user"></span> Manage users</a>
+            </li>
+        {% endif %}
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>
